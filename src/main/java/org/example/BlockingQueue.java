@@ -21,7 +21,7 @@ public class BlockingQueue {
             queue[tail] = task;
             tail = (tail + 1) % queue.length;
             count++;
-            notify();
+            notifyAll();
         }
     }
 
@@ -34,7 +34,7 @@ public class BlockingQueue {
             queue[0] = null;
             head = (head + 1) % queue.length;
             count--;
-            notify();
+            notifyAll();
             return task;
         }
     }
